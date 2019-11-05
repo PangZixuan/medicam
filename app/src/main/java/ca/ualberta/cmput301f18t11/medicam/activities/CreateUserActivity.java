@@ -60,6 +60,8 @@ public class CreateUserActivity extends AppCompatActivity {
         if (enteredUserId.getText().toString().equals("")){
             Toast.makeText(this,"Please Enter a user id",Toast.LENGTH_SHORT).show();
 
+        } else if (enteredUserId.getText().toString().length()<8){
+            Toast.makeText(this,"User id too short, has to be at least 8 digit long!",Toast.LENGTH_SHORT).show();
         } else if (patientPersistenceController.load(enteredUserId.getText().toString(),this)
                 != null || careProviderPersistenceController.load(enteredUserId.getText().toString(),
                 this) != null){
